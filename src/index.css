@@ -66,6 +66,58 @@ input[type='checkbox']:checked + span {
 footer {
   background: #f6f7f8;
 }
+
+.status__btn {
+  background: #919eab1a;
+  padding: 2px 15px 3px 15px;
+  position: relative;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  border-radius: 6px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #919eab;
+  gap: 4px;
+}
+.status__btn .dot {
+  background: #919eab;
+  border-radius: 50%;
+  width: 6px;
+  height: 6px;
+}
+.status__btn.active {
+  background: #38a1691a;
+  color: #38a169;
+}
+.status__btn.active .dot {
+  background: #38a169;
+}
+.status__btn.ended {
+  background: #e53e3e1a;
+  color: #e53e3e;
+}
+.status__btn.ended .dot {
+  background: #e53e3e;
+}
+.change__map-btn {
+  padding: 7px 24px;
+  border-radius: 3px;
+  border: 1px solid #d9d9d9;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+  color: #000000d9;
+}
+.cart__bg {
+  background: url(./assets/cart-bg.png) no-repeat;
+  background-size: cover;
+}
+.cart__bg.disabled {
+  background: url(./assets/disable-cart.png) no-repeat;
+}
 /* media query start */
 @media screen and (max-width: 1000px) {
   header .page-title {

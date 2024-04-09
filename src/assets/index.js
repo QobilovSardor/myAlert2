@@ -26,7 +26,7 @@ import bell from './bell.png';
 import message from './message.png';
 import whiteTelegram from './icons/white-telegram.svg';
 import tryItLogo from './try-it.png';
-
+import wallet from './icons/wallet.svg';
 export default {
   loginBanner,
   callIcon,
@@ -56,4 +56,5 @@ export default {
   message,
   whiteTelegram,
   tryItLogo,
+  wallet,
 };
