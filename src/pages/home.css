@@ -1,0 +1,31 @@
+.home__intro {
+  background: url(../assets/home.png) no-repeat #f6f7f8;
+  background-size: contain;
+  background-position: top right;
+}
+.bg__box {
+  background: url(../assets/box-bg.png) no-repeat;
+  background-size: 100% 100%;
+  height: fit-content;
+  position: relative;
+  /* width: 516px;
+  height: 149px; */
+  padding: 13px;
+}
+.bg__box .bg__box-title {
+  position: relative;
+}
+.bg__box .bg__box-title.blue::before {
+  background: #26c6da;
+}
+.bg__box .bg__box-title::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: -13px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #f55b3d;
+}

@@ -1,0 +1,123 @@
+body {
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  background-color: #f6f7f8 !important;
+}
+.container {
+  max-width: 66.6%;
+  margin: 0 auto;
+}
+body.scroll-hidden {
+  overflow: hidden;
+}
+.app-box > div {
+  width: 100%;
+}
+.gradient-bg {
+  background: linear-gradient(90deg, #f14141 0%, #fc8935 81.01%);
+}
+.gradient-text {
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-image: linear-gradient(90deg, #f14141 0%, #fc8935 81.01%);
+}
+input[type='checkbox']:checked + span {
+  background: #f55b3d !important;
+  border-color: #f55b3d !important;
+}
+
+.page-title {
+  font-family: 'Inter', sans-serif;
+  font-size: 36px;
+  font-weight: 700;
+  line-height: 43.2px;
+  color: #000;
+}
+
+.card-box {
+  border-radius: 12px;
+  padding: 24px;
+  background: #fff;
+}
+
+.line-box {
+  position: relative;
+}
+
+.line-box::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 12px;
+  width: 1px;
+  height: 100%;
+  background: #919eab3d;
+}
+
+.sidebar-nav-link.active {
+  background: #f55b3d14;
+  color: #f55b3d;
+  font-weight: 600;
+}
+
+.sidebar-nav-link.active svg path {
+  fill: #f55b3d;
+}
+
+/* media query start */
+@media screen and (max-width: 1000px) {
+  header .page-title {
+    font-size: 28px;
+    line-height: 33px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .login-content {
+    position: relative;
+    max-width: 100%;
+    background: #fff;
+    padding: 20px;
+    border-radius: 12px;
+    margin: 0 20px;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  header .page-title {
+    font-size: 24px;
+    line-height: 28px;
+  }
+
+  .card-box {
+    padding: 20px;
+  }
+
+  .left-sidebar {
+    position: absolute;
+    top: 50px;
+    left: -100%;
+    width: 100%;
+    height: 100vh;
+    background: #0000001a;
+    z-index: 100;
+    transition: 0.3s ease;
+  }
+
+  .left-sidebar.active {
+    left: 0;
+  }
+
+  .card-box {
+    padding: 20px;
+  }
+
+  .login-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 36px !important;
+    margin-bottom: 56px !important;
+  }
+}
