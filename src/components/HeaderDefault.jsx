@@ -20,6 +20,12 @@ export const HeaderDefault = () => {
         <Flex gap={4}>
           <ButtonComponent text='Возможности' />
           <ButtonComponent text='Поддержка' />
+          <ButtonComponent
+            text='Вход'
+            bg='brand.500'
+            color='#fff'
+            _hover='none'
+          />
         </Flex>
       </Flex>
     </header>

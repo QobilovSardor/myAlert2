@@ -1,5 +1,5 @@
 import React from 'react';
-import { Avito, ButtonComponent, HeaderDefault } from '../components';
+import { Avito, ButtonComponent, Footer, HeaderDefault } from '../components';
 import { Box, Text, Heading, Image, Flex } from '@chakra-ui/react';
 import assets from '../assets';
 import './home.css';
@@ -248,6 +248,139 @@ export const Home = () => {
           <Image mx='auto' src={assets.phone} />
         </Box>
       </Flex>
+
+      {/* notification__box */}
+      <Box
+        mt={16}
+        mb='174px'
+        className='home__intro bell__box container'
+        px={{ base: '32px', sm: '40px', desktop: '64px' }}
+        py={{ base: '28px', sm: '118px', desktop: '144px' }}
+        rounded={32}
+        position='relative'
+      >
+        <Heading
+          color='black.1'
+          fontSize={{ base: '24px', sm: '32px', desktop: '48px' }}
+          lineHeight={{ base: '28.8px', sm: '38.4px', desktop: '57.6px' }}
+        >
+          Попробуйте почти{' '}
+          <Text as='span' color='brand.base'>
+            даром!
+          </Text>
+        </Heading>
+        <Text
+          fontSize={{ base: 'sm', sm: '16px', desktop: 'lg' }}
+          lineHeight={{ base: '20px', sm: '24px', desktop: '27px' }}
+          mt={{ base: '12px ', desktop: '17px' }}
+          mb={{ base: '48px', desktop: '51px' }}
+          maxW='584px'
+          color='black.1'
+        >
+          3 дня бесплатно и 30 дней за 1 рубль
+        </Text>
+        <Image className='bell__img' src={assets.bell} />
+        <Box textAlign='center' w='fit-content'>
+          <ButtonComponent
+            text='Получить 30 дней за 1₽'
+            className='gradient-bg'
+            color='white'
+            size='lg'
+            bg='brand.500'
+            _hover='none'
+          />
+          <Text
+            as='span'
+            fontSize='16px'
+            color='black.5'
+            textAlign='center'
+            mt='17px'
+            display='block'
+          >
+            далее 299 ₽/мес.
+          </Text>
+        </Box>
+      </Box>
+
+      <Flex
+        justifyContent='space-between'
+        alignItems='center'
+        gap='88px'
+        mb='150px'
+        className='container'
+      >
+        <Box
+          bg='#F6F7F8'
+          pt={{ base: '24px', sm: '31px', desktop: '43px' }}
+          borderRadius={{ base: '16px', sm: ' 24px', desktop: '32px' }}
+          overflow='hidden'
+          h={{ base: '328px', sm: '429px', desktop: '586px' }}
+          flex={1}
+          textAlign='center'
+        >
+          <Image mx='auto' src={assets.message} />
+        </Box>
+        <Box maxW='567px'>
+          <Heading
+            color='black.1'
+            fontSize={{ base: '24px', sm: '32px', desktop: '48px' }}
+            lineHeight={{ base: '28.8px', sm: '38.4px', desktop: '57.6px' }}
+          >
+            Оперативная{' '}
+            <Text as='span' color='brand.base'>
+              поддержка
+            </Text>
+          </Heading>
+          <Text
+            color='#171923'
+            fontSize={{ base: '14px', desktop: '16px' }}
+            mt={{ base: '12px', sm: '20px', desktop: '24px' }}
+            mb={{ base: '24px', sm: '40px', desktop: '50px' }}
+          >
+            Быстрая поддержка в чате Telegram поможет вам настроить подключение
+            к сервисам.
+          </Text>
+          <ButtonComponent
+            text='Написать в поддержку'
+            bg='brand.500'
+            color='white'
+            size='lg'
+            icon={assets.whiteTelegram}
+            _hover='none'
+          />
+        </Box>
+      </Flex>
+
+      {/* try it */}
+      <Box
+        className='container try__it-box'
+        color='white'
+        rounded={{ base: '20px', sm: '24px', desktop: '32px' }}
+        py={{ base: '45px', sm: '149px', desktop: '137px' }}
+        pl={{ base: '32px', sm: '40px', desktop: '70px' }}
+      >
+        <Heading
+          fontSize={{ base: '24px', sm: '32px', desktop: '48px' }}
+          lineHeight={{ base: '28.8px', sm: '38.4px', desktop: '57.6px' }}
+        >
+          Попробуйте почти даром!
+        </Heading>
+        <Text
+          fontSize={{ base: '14px', desktop: '16px' }}
+          mt={{ base: '12px', sm: '20px', desktop: '24px' }}
+          mb={{ base: '24px', sm: '40px', desktop: '50px' }}
+        >
+          3 дня бесплатно и 30 дней за 1 рубль
+        </Text>
+        <Flex gap={6} alignItems='center'>
+          <ButtonComponent text='Получить 30 дней за 1₽' size='lg' />
+          <Text fontSize={{ base: '14px', desktop: '16px' }}>
+            далее 299 ₽/мес.
+          </Text>
+        </Flex>
+        <Image className='try__it-img' src={assets.tryItLogo} />
+      </Box>
+      <Footer />
     </Box>
   );
 };

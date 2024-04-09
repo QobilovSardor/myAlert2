@@ -63,7 +63,9 @@ input[type='checkbox']:checked + span {
 .sidebar-nav-link.active svg path {
   fill: #f55b3d;
 }
-
+footer {
+  background: #f6f7f8;
+}
 /* media query start */
 @media screen and (max-width: 1000px) {
   header .page-title {

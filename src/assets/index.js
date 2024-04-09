@@ -22,6 +22,11 @@ import sladki from './logo/sladki.svg';
 import WildBerries from './logo/WildBerries.svg';
 import notificationTwo from './icons/notification-two.svg';
 import phone from './phone.png';
+import bell from './bell.png';
+import message from './message.png';
+import whiteTelegram from './icons/white-telegram.svg';
+import tryItLogo from './try-it.png';
+
 export default {
   loginBanner,
   callIcon,
@@ -47,4 +52,8 @@ export default {
   WildBerries,
   notificationTwo,
   phone,
+  bell,
+  message,
+  whiteTelegram,
+  tryItLogo,
 };
