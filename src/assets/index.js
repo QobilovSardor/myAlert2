@@ -28,6 +28,10 @@ import whiteTelegram from './icons/white-telegram.svg';
 import tryItLogo from './try-it.png';
 import wallet from './icons/wallet.svg';
 import notFound from './404.png';
+import check from './check.svg';
+import telegram from './icons/telegram2.svg';
+import whatsapp from './icons/whatsapp.svg';
+
 export default {
   loginBanner,
   callIcon,
@@ -59,4 +63,7 @@ export default {
   tryItLogo,
   wallet,
   notFound,
+  check,
+  telegram,
+  whatsapp,
 };

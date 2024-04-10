@@ -41,6 +41,7 @@ export const NotFound = () => {
           color='#fff'
           size='md'
           _hover='none'
+          to='/home'
         />
       </Box>
     </Box>

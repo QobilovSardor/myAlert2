@@ -1,12 +1,19 @@
+// HeaderDefault.js
 import React, { useState } from 'react';
-import { Flex, Image } from '@chakra-ui/react';
+import { Flex, Image, Button } from '@chakra-ui/react';
 import { Link } from 'react-router-dom';
 import assets from '../assets';
 import { ButtonComponent } from './ButtonComponent';
 import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons';
 import { Box } from '@chakra-ui/react';
+import { SubscriptionModal } from './SubscriptionModal'; // SubscriptionModal import qilindi
+import { AddAccountModal } from './AddAccountModal';
+
 export const HeaderDefault = ({ notFoundBtn }) => {
   const [openSidebar, setOpenSidebar] = useState(false);
+  const [isOpenSubscriptionModal, setIsOpenSubscriptionModal] = useState(false); // Yangi o'zgaruvchi qo'shildi
+  const [isOpenSubscriptionModalTwo, setIsOpenSubscriptionModalTwo] =
+    useState(false); // Yangi o'zgaruvchi qo'shildi
 
   const handleOpenSidebar = () => {
     const sidebarElement = document.querySelector('.header__btns');
@@ -15,6 +22,18 @@ export const HeaderDefault = ({ notFoundBtn }) => {
       document.body.classList.toggle('scroll-hidden');
       sidebarElement.classList.toggle('active');
     }
+  };
+
+  const handleOpenSubscriptionModal = () => {
+    setIsOpenSubscriptionModal(!isOpenSubscriptionModal);
+  };
+
+  const handleOpenSubscriptionModalTwo = () => {
+    setIsOpenSubscriptionModalTwo(!isOpenSubscriptionModalTwo);
+  };
+
+  const handleCloseSubscriptionModal = () => {
+    setIsOpenSubscriptionModal(false);
   };
 
   return (
@@ -51,8 +70,10 @@ export const HeaderDefault = ({ notFoundBtn }) => {
         ) : (
           <Flex gap={4} alignItems='center'>
             <Flex className='header__btns' gap={4}>
-              <ButtonComponent text='Возможности' />
-              <ButtonComponent text='Поддержка' />
+              <Button onClick={handleOpenSubscriptionModal}>Возможности</Button>
+              <Button onClick={handleOpenSubscriptionModalTwo}>
+                Поддержка
+              </Button>
             </Flex>
             <ButtonComponent
               text='Вход'
@@ -75,6 +96,14 @@ export const HeaderDefault = ({ notFoundBtn }) => {
           </Flex>
         )}
       </Flex>
+      <SubscriptionModal
+        isOpen={isOpenSubscriptionModal}
+        onClose={handleCloseSubscriptionModal}
+      />{' '}
+      <AddAccountModal
+        isOpen={isOpenSubscriptionModalTwo}
+        onClose={handleOpenSubscriptionModalTwo}
+      />{' '}
     </header>
   );
 };

@@ -4,3 +4,5 @@ export { Avito } from './Avito';
 export { NavigationLink } from './NavigationLink';
 export { HeaderDefault } from './HeaderDefault';
 export { Footer } from './Footer';
+export { SubscriptionModal } from './SubscriptionModal';
+export { AddAccountModal } from './AddAccountModal';
