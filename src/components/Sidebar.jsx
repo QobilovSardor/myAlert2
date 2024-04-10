@@ -34,10 +34,10 @@ export default function Sidebar() {
           </Link>
           <Stack spacing={1}>
             <NavigationLink
-              to='/'
+              to='/account/no'
               text='Мои аккаунты'
               activeclass={`${
-                location.pathname === '/' ? 'active' : ''
+                location.pathname === '/account/no' ? 'active' : ''
               } sidebar-nav-link`}
               icon={''}
               svg={

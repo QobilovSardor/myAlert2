@@ -1,4 +1,5 @@
 import { lazy } from 'react';
+import { AccountsNo } from '../pages';
 const Account = lazy(() => import('../pages/Account'));
 const Connectors = lazy(() => import('../pages/Connectors'));
 const EditingAdding = lazy(() => import('../pages/EditingAdding'));
@@ -20,6 +21,10 @@ const coreRoutes = [
   {
     path: 'account',
     component: PersonalAccount,
+  },
+  {
+    path: 'account/no',
+    component: AccountsNo,
   },
 ];
 const router = [...coreRoutes];

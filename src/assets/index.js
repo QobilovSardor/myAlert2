@@ -31,6 +31,9 @@ import notFound from './404.png';
 import check from './check.svg';
 import telegram from './icons/telegram2.svg';
 import whatsapp from './icons/whatsapp.svg';
+import plus from './icons/plus.svg';
+import addFolter from './add.png';
+import question from './icons/question.svg';
 
 export default {
   loginBanner,
@@ -66,4 +69,7 @@ export default {
   check,
   telegram,
   whatsapp,
+  plus,
+  addFolter,
+  question,
 };

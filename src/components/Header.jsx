@@ -1,11 +1,11 @@
 import React from 'react';
-import { Box, Button, Flex, Heading, Image } from '@chakra-ui/react';
+import { Box, Button, Flex, Heading, Image, Tooltip } from '@chakra-ui/react';
 import { AddIcon, CloseIcon, HamburgerIcon } from '@chakra-ui/icons';
 import { useEffect, useState } from 'react';
 import assets from '../assets';
 import { useLocation } from 'react-router-dom';
 
-export const Header = ({ text, addBtn }) => {
+export const Header = ({ text, addBtn, questionBox }) => {
   const [openSidebar, setOpenSidebar] = useState(false);
   const location = useLocation();
   const handleOpenSidebar = () => {
@@ -66,7 +66,14 @@ export const Header = ({ text, addBtn }) => {
           },
         }}
       >
-        <Heading className='page-title'>{text}</Heading>
+        <Flex w='full' gap='16px' alignItems='center'>
+          <Heading className='page-title'>{text}</Heading>
+          {questionBox ? (
+            <Tooltip label="Hey, I'm here!" aria-label='A tooltip'>
+              <Image src={assets.question} />
+            </Tooltip>
+          ) : null}
+        </Flex>
         {addBtn ? (
           <Button
             leftIcon={<AddIcon />}

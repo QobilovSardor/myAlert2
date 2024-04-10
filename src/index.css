@@ -66,7 +66,24 @@ input[type='checkbox']:checked + span {
 footer {
   background: #f6f7f8;
 }
-
+.layout-footer {
+  padding: 24px 0;
+  position: relative;
+  z-index: 1;
+  border-top: 1px solid #919eab33;
+  margin-top: 50px;
+}
+.layout-footer .container {
+  max-width: 93%;
+  padding: 0;
+  row-gap: 1rem;
+}
+.layout-footer .container .css-1a368tr {
+  margin-bottom: 0;
+}
+.layout-footer a {
+  margin-bottom: 8px;
+}
 .status__btn {
   background: #919eab1a;
   padding: 2px 15px 3px 15px;

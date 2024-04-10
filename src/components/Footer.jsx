@@ -2,9 +2,9 @@ import React from 'react';
 import { Box, Text, Image, Flex, Link } from '@chakra-ui/react';
 import { ButtonComponent } from './ButtonComponent';
 import assets from '../assets';
-export const Footer = () => {
+export const Footer = ({ removeLogo, className }) => {
   return (
-    <footer>
+    <footer className={`${className}`}>
       <Flex
         className='container'
         pt={{ base: '40px', sm: '100px', desktop: '150px' }}
@@ -14,20 +14,22 @@ export const Footer = () => {
         rowGap='2rem'
       >
         <Box>
-          <Image src={assets.logo} w='224' h='66' />
+          {removeLogo ? null : <Image src={assets.logo} w='224' h='66' />}
           <Text size='14px' color='#718096' mt='16px'>
             ИНН 7729773587
           </Text>
           <Text size='14px' color='#718096' mt='12px' mb='28px'>
             @ 2024 MyAlert - ИП Иванов Иван Иванович
           </Text>
-          <ButtonComponent
-            text='Войти в систему'
-            bg='brand.500'
-            color='white'
-            size='lg'
-            _hover='none'
-          />
+          {removeLogo ? null : (
+            <ButtonComponent
+              text='Войти в систему'
+              bg='brand.500'
+              color='white'
+              size='lg'
+              _hover='none'
+            />
+          )}
         </Box>
         <Box>
           <Link mb='16px' to='#!' display='block' size='14px' color='#718096'>
