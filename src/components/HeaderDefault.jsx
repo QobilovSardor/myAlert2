@@ -59,14 +59,13 @@ export const HeaderDefault = ({ notFoundBtn }) => {
         </Link>
 
         {notFoundBtn ? (
-          <Link to='/home'>
-            <ButtonComponent
-              text='На главную страницу'
-              bg='brand.500'
-              _hover='none'
-              color='#fff'
-            />
-          </Link>
+          <ButtonComponent
+            text='На главную страницу'
+            bg='brand.500'
+            _hover='none'
+            color='#fff'
+            to='/home'
+          />
         ) : (
           <Flex gap={4} alignItems='center'>
             <Flex className='header__btns' gap={4}>
