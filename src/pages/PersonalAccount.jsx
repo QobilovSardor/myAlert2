@@ -84,7 +84,7 @@ const PersonalAccount = () => {
             <Box bg='brand.500' w='70%' borderRadius='23px' h='full'></Box>
           </Box>
           <Text color='#00000073' fontSize='13px'>
-            23 мая 2024, подписка будет продлена автоматически на месяц за 299 ₽
+            23 мая 2024, подписка будет продлена автоматически на месяц за 299 ₽
           </Text>
         </Box>
 
