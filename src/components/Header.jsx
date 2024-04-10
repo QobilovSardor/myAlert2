@@ -59,6 +59,12 @@ export const Header = ({ text, addBtn }) => {
         justifyContent='space-between'
         alignItems='center'
         mb={{ base: '20px', sm: 6, desktop: '37px' }}
+        sx={{
+          '@media (max-width:480px)': {
+            flexWrap: 'wrap',
+            rowGap: '12px',
+          },
+        }}
       >
         <Heading className='page-title'>{text}</Heading>
         {addBtn ? (

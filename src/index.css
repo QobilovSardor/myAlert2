@@ -110,22 +110,80 @@ footer {
   font-weight: 500;
   line-height: 24px;
   color: #000000d9;
+  white-space: nowrap;
 }
 .cart__bg {
   background: url(./assets/cart-bg.png) no-repeat;
   background-size: cover;
+  height: 149px;
 }
 .cart__bg.disabled {
   background: url(./assets/disable-cart.png) no-repeat;
+  height: 149px;
+  background-size: cover;
 }
 /* media query start */
+@media screen and (max-width: 1600px) {
+  .container {
+    max-width: 90%;
+  }
+}
 @media screen and (max-width: 1000px) {
   header .page-title {
     font-size: 28px;
     line-height: 33px;
   }
+  .container {
+    max-width: 100%;
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+  .home__intro {
+    width: 90%;
+    margin: 0 auto;
+  }
+  .avito__logo-heading img {
+    width: 111px;
+  }
+  .home__intro .bell__img {
+    width: 386px;
+    height: 354px;
+  }
+  .home__page .try__it-img {
+    width: 45%;
+    top: auto;
+    bottom: 0;
+  }
+  .home__page .try__it-box {
+    max-width: 90%;
+  }
 }
-
+@media screen and (max-width: 890px) {
+  .home__intro .bell__img {
+    position: relative;
+    margin-bottom: 20px;
+  }
+  .home__intro.bell__box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #f6f7f8;
+    padding: 28px 32px;
+  }
+}
+@media screen and (max-width: 830px) {
+  .home__page .try__it-img {
+    position: relative;
+    margin-left: auto;
+    margin-top: auto;
+    width: 400px;
+  }
+  .home__page .try__it-box {
+    padding-right: 0;
+    padding-bottom: 0;
+    padding-top: 45px;
+  }
+}
 @media screen and (max-width: 768px) {
   .login-content {
     position: relative;
@@ -135,14 +193,76 @@ footer {
     border-radius: 12px;
     margin: 0 20px;
   }
+  .home__intro {
+    height: 550px;
+    background: url(./assets/media-intro.png) no-repeat;
+    background-position: bottom center;
+    background-size: 100% 100%;
+  }
+  .home__intro > div {
+    max-width: 100%;
+  }
+  .home__intro {
+    background-color: #f6f7f8;
+  }
+  .home__intro.bell__box {
+    height: fit-content;
+    margin: 0 auto 100px auto;
+  }
+  .home__intro .bell__img {
+    height: 224px;
+    width: 230px;
+  }
 }
-
+.hamburger__menu {
+  display: none;
+}
 @media screen and (max-width: 640px) {
   header .page-title {
     font-size: 24px;
     line-height: 28px;
   }
-
+  .hamburger__menu {
+    display: block;
+    width: 24px;
+    height: 24px;
+  }
+  .header__btns {
+    position: absolute;
+    top: calc(86px - 1px);
+    flex-direction: column;
+    left: 0;
+    transform: translateX(-100%);
+    width: 100%;
+    height: 100vh;
+    background: #0000001a;
+    z-index: 100;
+    transition: 0.3s ease;
+    display: block;
+    padding: 1rem;
+  }
+  .header__btns::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 100%;
+    background: #fff;
+  }
+  .header__btns.active {
+    transform: translateX(0);
+  }
+  .header__btns button {
+    width: 150px;
+  }
+  .features .container {
+    padding: 0 20px;
+  }
+  .home__page .try__it-box {
+    transform: translateY(0);
+    margin-bottom: 100px;
+  }
   .card-box {
     padding: 20px;
   }
@@ -173,5 +293,26 @@ footer {
     flex-direction: column;
     margin-top: 36px !important;
     margin-bottom: 56px !important;
+  }
+  .avito__logo-heading img {
+    width: 65px;
+  }
+  .avito__logo-heading {
+    flex-wrap: wrap;
+  }
+  footer button {
+    width: 100%;
+  }
+  .container {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+@media screen and (max-width: 480px) {
+  .change__map-btn {
+    width: 100%;
+  }
+  .css-1c4bq35 {
+    white-space: nowrap;
   }
 }

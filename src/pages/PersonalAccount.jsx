@@ -3,17 +3,43 @@ import { ButtonComponent, Header } from '../components';
 import { Box, Flex, Heading, Text } from '@chakra-ui/react';
 const PersonalAccount = () => {
   return (
-    <Box>
+    <Box className='subscription__management'>
       <Header text='Управление подпиской' addBtn={true} />
-      <Flex justifyContent='space-between' gap='20px'>
+      <Flex
+        justifyContent='space-between'
+        gap='20px'
+        sx={{
+          '@media (max-width: 1300px)': {
+            flexDir: 'column',
+          },
+        }}
+      >
         <Box
           flex={1}
           borderRadius={{ base: '20px' }}
           p={{ base: '20px', desktop: '24px' }}
           bg='#fff'
         >
-          <Flex justifyContent='space-between' alignItems='start'>
-            <Box borderRadius='16px'>
+          <Flex
+            sx={{
+              '@media (max-width:480px)': {
+                flexDir: 'column',
+                mb: '20px',
+              },
+            }}
+            justifyContent='space-between'
+            alignItems='start'
+          >
+            <Box
+              borderRadius='16px'
+              sx={{
+                '@media (max-width:480px)': {
+                  display: 'flex',
+                  justifyContent: 'space-between',
+                  w: 'full',
+                },
+              }}
+            >
               <Heading
                 fontSize={{ base: '18px', sm: '20px', desktop: '24px' }}
                 as='h4'
@@ -68,20 +94,41 @@ const PersonalAccount = () => {
           p={{ base: '20px', desktop: '24px' }}
           bg='#fff'
         >
-          <Flex justifyContent='space-between' alignItems='start' h='full'>
+          <Flex
+            justifyContent='space-between'
+            gap='1rem'
+            alignItems='start'
+            h='full'
+            sx={{
+              '@media (max-width:480px)': {
+                flexDir: 'column',
+              },
+            }}
+          >
             <Flex
               justifyContent='space-between'
               flexDir='column'
               borderRadius='16px'
               h='full'
+              rowGap='18px'
+              w='full'
             >
-              <Box>
+              <Box
+                sx={{
+                  '@media (max-width:480px)': {
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'space-between',
+                    w: 'full',
+                  },
+                }}
+              >
                 <Heading
                   fontSize={{ base: '18px', sm: '20px', desktop: '24px' }}
                   as='h4'
                   color='#000000D9'
                   fontWeight={600}
-                  mb='16px'
+                  mb={{ sm: '16px' }}
                 >
                   Автоплатёж
                 </Heading>
@@ -105,7 +152,11 @@ const PersonalAccount = () => {
               display='flex'
               justifyContent='end'
               flexDir='column'
-              h='full'
+              sx={{
+                '@media (max-width:480px)': {
+                  maxW: 'full',
+                },
+              }}
             >
               <Text fontSize='21px' fontWeight={500}>
                 **** **** **** 6789
@@ -115,7 +166,16 @@ const PersonalAccount = () => {
           </Flex>
         </Box>
       </Flex>
-      <Flex justifyContent='space-between' gap='20px' mt='116px'>
+      <Flex
+        justifyContent='space-between'
+        gap='20px'
+        mt={{ base: '32px', desktop: '116px' }}
+        sx={{
+          '@media (max-width: 1300px)': {
+            flexDir: 'column',
+          },
+        }}
+      >
         <Box
           flex={1}
           borderRadius={{ base: '20px' }}
@@ -156,14 +216,41 @@ const PersonalAccount = () => {
           p={{ base: '20px', desktop: '24px' }}
           bg='#fff'
         >
-          <Flex justifyContent='space-between' alignItems='start' h='full'>
+          <Flex
+            justifyContent='space-between'
+            alignItems='start'
+            h='full'
+            sx={{
+              '@media (max-width:480px)': {
+                flexDir: 'column',
+                rowGap: '1rem',
+                w: 'full',
+              },
+            }}
+          >
             <Flex
               justifyContent='space-between'
               flexDir='column'
               borderRadius='16px'
               h='full'
+              rowGap='18px'
+              sx={{
+                '@media (max-width:480px)': {
+                  flexDir: 'column',
+                  w: 'full',
+                },
+              }}
             >
-              <Box>
+              <Box
+                sx={{
+                  '@media (max-width:480px)': {
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'space-between',
+                    w: 'full',
+                  },
+                }}
+              >
                 <Heading
                   fontSize={{ base: '18px', sm: '20px', desktop: '24px' }}
                   as='h4'
@@ -194,6 +281,11 @@ const PersonalAccount = () => {
               justifyContent='end'
               flexDir='column'
               h='full'
+              sx={{
+                '@media (max-width:480px)': {
+                  maxW: 'full',
+                },
+              }}
             >
               <Text fontSize='21px' fontWeight={500}>
                 **** **** **** ****

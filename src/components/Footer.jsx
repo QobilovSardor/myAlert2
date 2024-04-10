@@ -10,6 +10,8 @@ export const Footer = () => {
         pt={{ base: '40px', sm: '100px', desktop: '150px' }}
         pb={{ base: '40px', desktop: '80px' }}
         justifyContent='space-between'
+        flexWrap='wrap'
+        rowGap='2rem'
       >
         <Box>
           <Image src={assets.logo} w='224' h='66' />
