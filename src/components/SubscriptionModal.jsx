@@ -13,7 +13,6 @@ import assets from '../assets';
 import { ButtonComponent } from './ButtonComponent';
 export const SubscriptionModal = (props) => {
   const { isOpen, onClose } = props;
-  console.log(isOpen);
 
   return (
     <>

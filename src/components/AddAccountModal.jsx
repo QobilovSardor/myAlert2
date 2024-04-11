@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef, useState } from 'react';
 import {
   Modal,
   ModalOverlay,
@@ -15,6 +15,7 @@ import {
 import assets from '../assets';
 import { ButtonComponent } from './ButtonComponent';
 import { Avito } from './Avito';
+import { DragDrop } from './DragDrop';
 export const AddAccountModal = (props) => {
   const { isOpen, onClose } = props;
 
@@ -45,6 +46,9 @@ export const AddAccountModal = (props) => {
               коннекторы, отправляющие уведомления.
             </Text>
           </ModalHeader>
+
+          {/* <DragDrop /> */}
+
           <ModalCloseButton />
           <ModalBody display='flex' flexDir='column' alignItems='center'>
             <Flex
