@@ -332,6 +332,12 @@ export const Home = () => {
             color='black.1'
             fontSize={{ base: '24px', sm: '32px', desktop: '48px' }}
             lineHeight={{ base: '28.8px', sm: '38.4px', desktop: '57.6px' }}
+            maxW='57%'
+            sx={{
+              '@media (max-width:880px)': {
+                maxW: '100%',
+              },
+            }}
           >
             Попробуйте почти{' '}
             <Text as='span' color='brand.base'>
@@ -444,35 +450,44 @@ export const Home = () => {
           py={{ base: '45px', sm: '149px', desktop: '137px' }}
           pl={{ base: '32px', sm: '40px', desktop: '70px' }}
         >
-          <Heading
-            fontSize={{ base: '24px', sm: '32px', desktop: '48px' }}
-            lineHeight={{ base: '28.8px', sm: '38.4px', desktop: '57.6px' }}
-          >
-            Попробуйте почти даром!
-          </Heading>
-          <Text
-            fontSize={{ base: '14px', desktop: '16px' }}
-            mt={{ base: '12px', sm: '20px', desktop: '24px' }}
-            mb={{ base: '24px', sm: '40px', desktop: '50px' }}
-          >
-            3 дня бесплатно и 30 дней за 1 рубль
-          </Text>
-          <Flex
-            gap={6}
-            alignItems='center'
+          <Box
+            maxW='57%'
             sx={{
-              '@media (max-width: 480px)': {
-                flexDir: 'column',
-                textAlign: 'center',
-                alignItems: 'start',
+              '@media (max-width: 880px)': {
+                maxW: '100%',
               },
             }}
           >
-            <ButtonComponent text='Получить 30 дней за 1₽' size='lg' />
-            <Text fontSize={{ base: '14px', desktop: '16px' }}>
-              далее 299 ₽/мес.
+            <Heading
+              fontSize={{ base: '24px', sm: '32px', desktop: '48px' }}
+              lineHeight={{ base: '28.8px', sm: '38.4px', desktop: '57.6px' }}
+            >
+              Попробуйте почти даром!
+            </Heading>
+            <Text
+              fontSize={{ base: '14px', desktop: '16px' }}
+              mt={{ base: '12px', sm: '20px', desktop: '24px' }}
+              mb={{ base: '24px', sm: '40px', desktop: '50px' }}
+            >
+              3 дня бесплатно и 30 дней за 1 рубль
             </Text>
-          </Flex>
+            <Flex
+              gap={6}
+              alignItems='center'
+              sx={{
+                '@media (max-width: 480px)': {
+                  flexDir: 'column',
+                  textAlign: 'center',
+                  alignItems: 'start',
+                },
+              }}
+            >
+              <ButtonComponent text='Получить 30 дней за 1₽' size='lg' />
+              <Text fontSize={{ base: '14px', desktop: '16px' }}>
+                далее 299 ₽/мес.
+              </Text>
+            </Flex>
+          </Box>
           <Image className='try__it-img' src={assets.tryItLogo} />
         </Box>
         <Footer />

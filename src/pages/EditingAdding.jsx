@@ -2,16 +2,13 @@ import React from 'react';
 import {
   Box,
   Flex,
-  FormControl,
-  FormLabel,
   Heading,
   Input,
   Select,
   Stack,
-  Switch,
   Text,
 } from '@chakra-ui/react';
-import { Avito, ButtonComponent, Header } from '../components';
+import { ButtonComponent, Header } from '../components';
 import assets from '../assets';
 
 const EditingAdding = () => {
@@ -101,78 +98,53 @@ const EditingAdding = () => {
             mt={2}
             pt={{ base: 3, sm: 4 }}
             pb={{ base: 4, sm: 6, desktop: 8 }}
+            maxW='528px'
           >
-            <Box>
-              <Text
-                mb={1}
-                color='black.1'
-                fontSize={{ base: 'sm', sm: '15px', desktop: '16px' }}
-              >
-                Стратегия
-              </Text>
-              <Select
-                size={{ base: 'sm', sm: 'lg' }}
-                w={{ base: '100%', tablet: '500px' }}
-                placeholder='Пропущенные сообщения'
+            <Flex gap='16px' flexWrap='wrap'>
+              <ButtonComponent
+                text='Вход по ссылке'
+                bg='#F55B3D14'
+                size='sm'
+                _hover='none'
               />
-            </Box>
-            <Box>
-              <Text
-                mb={1}
-                color='black.1'
-                fontSize={{ base: 'sm', sm: '15px', desktop: '16px' }}
-              >
-                Сообщение считается пропущенным через
-              </Text>
-              <Input
-                w={{ base: '100%', tablet: '500px' }}
-                placeholder='20 мин.'
-                size={{ base: 'sm', sm: 'lg' }}
+              <ButtonComponent
+                text='Вход по коду'
+                size='sm'
+                _hover='none'
+                bg='#F6F7F8'
+                color='#637381'
               />
-            </Box>
-            <FormControl display='flex' gap={3} alignItems='center'>
-              <Switch id='email-alerts' isChecked />
-              <FormLabel
-                userSelect='none'
-                htmlFor='email-alerts'
-                color='black.1'
-                fontWeight={400}
-                fontSize={{ base: 'sm', sm: '16px' }}
-                ml='0'
-                mb='0'
-              >
-                Присылать уведомления только в рабочее время
-              </FormLabel>
-            </FormControl>
+            </Flex>
             <Box>
               <Text
-                mb={1}
-                color='black.1'
-                fontSize={{ base: 'sm', sm: '15px', desktop: '16px' }}
+                mb='16px'
+                color='#171923'
+                fontSize={{ base: 'sm', sm: '15px', desktop: '15px' }}
+                fontWeight={600}
               >
-                Рабочие часы
+                Ссылка для авторизации
               </Text>
               <Flex
+                flexWrap={{ base: 'wrap', desktop: 'nowrap' }}
+                gap='8px'
                 alignItems='center'
-                maxW={{ base: '100%', tablet: '500px' }}
               >
                 <Input
-                  w={{ base: '62px', xs: 'full' }}
-                  placeholder='10:00'
+                  w={{ base: '100%', tablet: '360px' }}
+                  placeholder='https://t.me/NetAngelsMonitoringBot?start=542562'
                   size={{ base: 'sm', sm: 'lg' }}
+                  fontSize='13px'
                 />
-                <Box
-                  w={{ base: 4, sm: '20px' }}
-                  h='1px'
-                  bg='#E2E8F0'
-                  mx={{ base: 2, md: 3 }}
-                />
-                <Input
-                  w={{ base: '62px', xs: 'full' }}
-                  placeholder='10:00'
-                  size={{ base: 'sm', sm: 'lg' }}
+                <ButtonComponent
+                  text='Скопировать'
+                  bg='brand.500'
+                  color='#fff'
+                  _hover='none'
                 />
               </Flex>
+              <Text fontSize='15px' color='#000000' mt='24px' maxW='325px'>
+                При переходе по ссылке, пользователь будет авторизован сразу.
+              </Text>
             </Box>
           </Stack>
         </Box>
@@ -197,66 +169,44 @@ const EditingAdding = () => {
               fontWeight={500}
               lineHeight='22px'
             >
-              Аккаунты для получения уведомлений
+              Настройте подключение
             </Heading>
           </Flex>
           <Stack
-            pt={{ base: 3, sm: 4 }}
-            pb={{ base: 4, sm: 6, desktop: 6 }}
-            spacing={4}
+            spacing={{ base: 3, sm: '38px' }}
             className='line-box'
             pl={8}
             mt={2}
+            pt={{ base: 3, sm: 4 }}
+            pb={{ base: 4, sm: 6, desktop: 8 }}
+            maxW='528px'
           >
+            <Flex gap='16px' flexWrap='wrap'>
+              <ButtonComponent
+                text='Вход через Авито'
+                bg='#F55B3D14'
+                size='sm'
+                _hover='none'
+              />
+              <ButtonComponent
+                text='Интеграция через ключ'
+                size='sm'
+                _hover='none'
+                bg='#F6F7F8'
+                color='#637381'
+              />
+            </Flex>
             <Box>
-              <Text
-                mb={1}
-                color='black.1'
-                fontSize={{ base: 'sm', sm: '15px', desktop: '16px' }}
-              >
-                Добавленные аккаунты
+              <Text fontSize='15px' color='#000000' maxW='325px' mb='24px'>
+                Для добавления аккаунта нажмите на кнопку и пройдите авторизацию
+                через avito.ru
               </Text>
-              <Flex
-                gap='10px'
-                flexWrap='wrap'
-                w={{ base: '100%', tablet: '500px' }}
-                border='1px solid #E2E8F0'
-                borderRadius='md'
-                py='10px'
-                px={4}
-              >
-                <Avito
-                  leftIcon={assets.blueTelegramIcon}
-                  color='black.5'
-                  text='@tg_name'
-                  rightIcon={assets.closeIcon}
-                />
-                <Avito
-                  leftIcon={assets.blueTelegramIcon}
-                  color='black.5'
-                  text='@tg_name'
-                  rightIcon={assets.closeIcon}
-                />
-                <Avito
-                  leftIcon={assets.blueTelegramIcon}
-                  color='black.5'
-                  text='@tg_name'
-                  rightIcon={assets.closeIcon}
-                />
-              </Flex>
-            </Box>
-            <Box>
-              <Text
-                mb={1}
-                color='black.1'
-                fontSize={{ base: 'sm', sm: '15px', desktop: '16px' }}
-              >
-                Добавление аккаунта
-              </Text>
-              <Input
-                w={{ base: '100%', tablet: '500px' }}
-                placeholder='t.me@'
-                size={{ base: 'sm', sm: 'lg' }}
+              <ButtonComponent
+                text='Войти'
+                bg='brand.500'
+                color='#fff'
+                _hover='none'
+                width='130px'
               />
             </Box>
           </Stack>

@@ -8,12 +8,11 @@
 }
 .bg__box {
   background: url(../assets/box-bg.png) no-repeat;
-  background-size: 100% 100%;
+  background-size: cover;
   height: fit-content;
   position: relative;
-  /* width: 516px;
-  height: 149px; */
   padding: 13px;
+  border-radius: 20px;
 }
 .bg__box .bg__box-title {
   position: relative;
