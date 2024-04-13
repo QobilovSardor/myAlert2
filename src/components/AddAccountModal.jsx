@@ -1,27 +1,20 @@
-import React, { useRef, useState } from 'react';
+import React from 'react';
 import {
   Modal,
   ModalOverlay,
   ModalHeader,
   ModalContent,
   ModalCloseButton,
-  ModalBody,
   Heading,
-  Image,
   Text,
-  Flex,
-  Box,
 } from '@chakra-ui/react';
-import assets from '../assets';
-import { ButtonComponent } from './ButtonComponent';
-import { Avito } from './Avito';
 import { DragDrop } from './DragDrop';
 export const AddAccountModal = (props) => {
   const { isOpen, onClose } = props;
 
   return (
     <>
-      <Modal onClose={onClose} isOpen={isOpen} isCentered>
+      <Modal onClose={onClose} isOpen={true} isCentered>
         <ModalOverlay />
         <ModalContent
           textAlign='center'
@@ -47,10 +40,10 @@ export const AddAccountModal = (props) => {
             </Text>
           </ModalHeader>
 
-          {/* <DragDrop /> */}
+          <DragDrop />
 
           <ModalCloseButton />
-          <ModalBody display='flex' flexDir='column' alignItems='center'>
+          {/* <ModalBody display='flex' flexDir='column' alignItems='center'>
             <Flex
               sx={{
                 '@media (max-width: 600px)': {
@@ -157,7 +150,7 @@ export const AddAccountModal = (props) => {
                 color='#fff'
               />
             </Flex>
-          </ModalBody>
+          </ModalBody> */}
         </ModalContent>
       </Modal>
     </>

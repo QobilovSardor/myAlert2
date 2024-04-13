@@ -1,182 +1,166 @@
-import React, { useState, useEffect } from 'react';
-import _ from 'lodash'; // lodash kutubxonasini o'rnatish kerak
+import { Box, Flex, Heading, Image, Text } from '@chakra-ui/react';
+import React from 'react';
+import assets from '../assets';
+import { Avito } from './Avito';
+const socialMediaLinks = [
+  { rightIcon: assets.avitoLogo, text: 'Авито' },
+  { rightIcon: assets.sladki, text: 'Мой Склад' },
+  { rightIcon: assets.WildBerries, text: 'WildBerries' },
+  { rightIcon: assets.telegram, text: 'Telegram' },
+  { rightIcon: assets.whatsapp, text: 'WhatsApp' },
+];
 
-export const DragDrop = () => {
-  const dataStructure = [
-    [0, 3, 6, 9],
-    [1, 4, 7, 10],
-    [2, 5, 8, 11],
-  ];
-
-  const reinsert = (array, colFrom, rowFrom, colTo, rowTo) => {
-    const _array = array.slice(0);
-    const val = _array[colFrom][rowFrom];
-    _array[colFrom].splice(rowFrom, 1);
-    _array[colTo].splice(rowTo, 0, val);
-    calculateVisiblePositions(_array);
-    return _array;
-  };
-
-  const gutterPadding = 21;
-  const clamp = (n, min, max) => Math.max(Math.min(n, max), min);
-  const getColumnWidth = () =>
-    window.innerWidth / dataStructure.length -
-    gutterPadding / dataStructure.length;
-  const height = 110;
-
-  let width = getColumnWidth();
-  let layout = null;
-
-  const calculateVisiblePositions = (newOrder) => {
-    width = getColumnWidth();
-    layout = newOrder.map((column, col) => {
-      return _.range(column.length + 1).map((item, row) => {
-        return [width * col, height * row];
-      });
-    });
-  };
-
-  const [state, setState] = useState({
-    mouse: [0, 0],
-    delta: [0, 0],
-    lastPress: null,
-    currentColumn: null,
-    isPressed: false,
-    order: dataStructure,
-    isResizing: false,
-  });
-
-  useEffect(() => {
-    const resizeHandler = () => {
-      clearTimeout(this.resizeTimeout);
-      applyResizingState(true);
-      this.resizeTimeout = setTimeout(() => applyResizingState(false), 100);
-    };
-
-    window.addEventListener('resize', resizeHandler);
-    return () => window.removeEventListener('resize', resizeHandler);
-  }, []);
-
-  const applyResizingState = (isResizing) => {
-    setState((prevState) => ({
-      ...prevState,
-      isResizing,
-    }));
-    calculateVisiblePositions(dataStructure);
-  };
-
-  const handleTouchStart = (key, currentColumn, pressLocation, e) => {
-    handleMouseDown(key, currentColumn, pressLocation, e.touches[0]);
-  };
-
-  const handleTouchMove = (e) => {
-    e.preventDefault();
-    handleMouseMove(e.touches[0]);
-  };
-
-  const handleMouseMove = ({ pageX, pageY }) => {
-    const {
-      order,
-      lastPress,
-      currentColumn: colFrom,
-      isPressed,
-      delta: [dx, dy],
-    } = state;
-    if (isPressed) {
-      const mouse = [pageX - dx, pageY - dy];
-      const colTo = clamp(Math.floor((mouse[0] + width / 2) / width), 0, 2);
-      const rowTo = clamp(Math.floor((mouse[1] + height / 2) / height), 0, 100);
-      const rowFrom = order[colFrom].indexOf(lastPress);
-      const newOrder = reinsert(order, colFrom, rowFrom, colTo, rowTo);
-      setState((prevState) => ({
-        ...prevState,
-        mouse,
-        order: newOrder,
-        currentColumn: colTo,
-      }));
-    }
-  };
-
-  const handleMouseDown = (
-    key,
-    currentColumn,
-    [pressX, pressY],
-    { pageX, pageY },
-  ) => {
-    setState((prevState) => ({
-      ...prevState,
-      lastPress: key,
-      currentColumn,
-      isPressed: true,
-      delta: [pageX - pressX, pageY - pressY],
-      mouse: [pressX, pressY],
-    }));
-  };
-
-  const handleMouseUp = () => {
-    setState((prevState) => ({
-      ...prevState,
-      isPressed: false,
-      delta: [0, 0],
-    }));
+// Thing to Drag
+const DraggableThing = (props) => {
+  const dragStart = (e) => {
+    console.log('dragging ', e.target.id);
+    e.dataTransfer.setData('animal', e.target.id);
   };
 
   return (
-    <div className='items'>
-      {state.order.map((column, colIndex) =>
-        column.map((row) => {
-          let style,
-            x,
-            y,
-            visualPosition = state.order[colIndex].indexOf(row),
-            isActive =
-              row === state.lastPress &&
-              colIndex === state.currentColumn &&
-              state.isPressed;
+    <Flex
+      bg='#F6F7F8'
+      py='8px'
+      px='12px'
+      borderRadius='6px'
+      h='fit-content'
+      gap={1}
+      draggable='true'
+      onDragStart={dragStart}
+    >
+      <Text
+        fontSize='14px'
+        fontWeight={500}
+        color='#171923'
+        id={props.id}
+        whiteSpace='none'
+      >
+        {props.id}
+      </Text>
+      <Image src={props.icon} />
+    </Flex>
+  );
+};
 
-          if (isActive) {
-            [x, y] = state.mouse;
-            style = {
-              translateX: x,
-              translateY: y,
-              scale: 1.1,
-            };
-          } else if (state.isResizing) {
-            [x, y] = layout[colIndex][visualPosition];
-            style = {
-              translateX: x,
-              translateY: y,
-              scale: 1,
-            };
-          } else {
-            [x, y] = layout[colIndex][visualPosition];
-            style = {
-              translateX: x,
-              translateY: y,
-              scale: 1,
-            };
-          }
+// Element that receives DroppableThings
+const DroppableArea = (props) => {
+  // https://developer.mozilla.org/en-US/docs/Web/API/Document/drop_event
+  const drop = (e) => {
+    const thingBeingDragged = e.dataTransfer.getData('animal');
+    e.target.appendChild(document.getElementById(thingBeingDragged));
 
-          return (
-            <div
-              key={row}
-              onMouseDown={handleMouseDown.bind(null, row, colIndex, [x, y])}
-              onTouchStart={handleTouchStart.bind(null, row, colIndex, [x, y])}
-              className={isActive ? 'item is-active' : 'item'}
-              style={{
-                WebkitTransform: `translate3d(${style.translateX}px, ${style.translateY}px, 0) scale(${style.scale})`,
-                transform: `translate3d(${style.translateX}px, ${style.translateY}px, 0) scale(${style.scale})`,
-                zIndex:
-                  row === state.lastPress && colIndex === state.currentColumn
-                    ? 99
-                    : visualPosition,
-              }}
-            >
-              Item {row + 1}
-            </div>
-          );
-        }),
-      )}
-    </div>
+    // Remove the highlight
+    // because the onDragLeave won't fire after onDrop
+    e.target.classList.remove('activeDropArea');
+  };
+
+  // https://developer.mozilla.org/en-US/docs/Web/API/Document/dragover_event
+  const allowDrop = (e) => {
+    // The default action of onDragOver
+    // is to cancel the drop operation  -.-
+    // so we need to prevent that
+    e.preventDefault();
+  };
+
+  // https://developer.mozilla.org/en-US/docs/Web/API/Document/dragenter_event
+  const dragEnter = (e) => {
+    // Drag Enter is used to
+    // highlight the drop area
+    e.target.classList.add('activeDropArea');
+  };
+
+  // https://developer.mozilla.org/en-US/docs/Web/API/Document/dragleave_event
+  const dragLeave = (e) => {
+    // Drag Leave is used to
+    // remove the highlight in the drop area
+    e.target.classList.remove('activeDropArea');
+  };
+  return (
+    // <div
+    //   className='droppableArea'
+    //   id={props.id}
+    //   onDrop={drop}
+    //   onDragOver={allowDrop}
+    //   onDragEnter={dragEnter}
+    //   onDragLeave={dragLeave}
+    // >
+    //   <p>picked animals 🤲</p>
+    // </div>
+    <Box
+      maxW='50%'
+      textAlign='left'
+      flex={1}
+      bg='#fff'
+      p='24px'
+      borderRadius='12px'
+      sx={{
+        '@media (max-width: 600px)': {
+          maxW: '100%',
+          w: 'full',
+        },
+      }}
+    >
+      <Heading fontSize='16px'>Коннектор</Heading>
+      <Text fontWeight='400' fontSize='16px' my='12px' color='#637381'>
+        Получение данных
+      </Text>
+      <Box w='fit-content'>
+        <Avito rightIcon={assets.avitoLogo} text='Авито' />
+      </Box>
+      <Image
+        src={assets.mediaNextIcon}
+        transform='rotate(90deg)'
+        display='block'
+        my='12px'
+      />
+      <Text fontWeight='400' fontSize='16px' my='12px' color='#637381'>
+        Отправка данных
+      </Text>
+      <Flex
+        className='droppableArea'
+        id={props.id}
+        onDrop={drop}
+        onDragOver={allowDrop}
+        onDragEnter={dragEnter}
+        onDragLeave={dragLeave}
+        flexWrap='wrap'
+        gap='12px'
+        w='fit-content'
+      >
+        {/* <Avito rightIcon={assets.whatsapp} text='WhatsApp' />
+        <Avito rightIcon={assets.telegram} text='Telegram' /> */}
+      </Flex>
+    </Box>
+  );
+};
+
+export const DragDrop = () => {
+  return (
+    <Flex px='36px' gap='12px'>
+      <Box
+        sx={{
+          '@media (max-width: 600px)': {
+            maxW: '100%',
+          },
+        }}
+        maxW='50%'
+        w='100%'
+        bg='#fff'
+        p='24px'
+        borderRadius='12px'
+      >
+        <Heading fontSize='16px'>Ваши аккаунты</Heading>
+        <Flex flexWrap='wrap' gap='12px' mt='14px'>
+          {socialMediaLinks.map((link) => (
+            <DraggableThing
+              key={link.text}
+              id={link.text}
+              icon={link.rightIcon}
+            />
+          ))}
+        </Flex>
+      </Box>
+      <DroppableArea />
+    </Flex>
   );
 };
