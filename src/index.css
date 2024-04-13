@@ -382,3 +382,9 @@ footer {
   height: fit-content;
   background-position: 90% center;
 }
+@media screen and (max-width: 480px) {
+  .offer p,
+  .offer {
+    font-size: 14px;
+  }
+}

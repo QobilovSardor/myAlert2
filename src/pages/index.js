@@ -4,3 +4,6 @@ export { Home } from './Home';
 export { NotFound } from './NotFound';
 export { AccountsNo } from './AccountsNo';
 export { Offer } from './Offer';
+export { PersonalData } from './PersonalData';
+export { Transactions } from './Transactions';
+export { SubscriptionAgreement } from './SubscriptionAgreement';
