@@ -368,6 +368,17 @@ footer {
 /* drag drop code */
 .droppableArea {
   /* border: 2px solid #687bf7; */
-  min-width: 215px;
+  min-width: 100%;
   min-height: 33px;
+}
+.activeDropArea {
+  border-color: salmon;
+}
+.droppableArea p {
+  height: fit-content;
+  background-color: #f6f7f8;
+  padding: 8px 40px 8px 12px;
+  border-radius: 6px;
+  height: fit-content;
+  background-position: 90% center;
 }

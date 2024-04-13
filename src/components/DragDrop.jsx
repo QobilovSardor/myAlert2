@@ -10,82 +10,57 @@ const socialMediaLinks = [
   { rightIcon: assets.whatsapp, text: 'WhatsApp' },
 ];
 
-// Thing to Drag
 const DraggableThing = (props) => {
   const dragStart = (e) => {
-    console.log('dragging ', e.target.id);
-    e.dataTransfer.setData('animal', e.target.id);
+    e.dataTransfer.setData('socialMediaLinks', e.target.id);
+    console.log(e.dataTransfer);
   };
 
   return (
-    <Flex
+    <Text
       bg='#F6F7F8'
       py='8px'
-      px='12px'
+      pl='12px'
+      pr='40px'
       borderRadius='6px'
       h='fit-content'
       gap={1}
+      cursor='grab'
       draggable='true'
       onDragStart={dragStart}
+      fontSize='14px'
+      fontWeight={500}
+      color='#171923'
+      id={props.id}
+      whiteSpace='none'
+      bgImage={props.icon}
+      bgRepeat='no-repeat'
+      bgPos='90% center'
     >
-      <Text
-        fontSize='14px'
-        fontWeight={500}
-        color='#171923'
-        id={props.id}
-        whiteSpace='none'
-      >
-        {props.id}
-      </Text>
-      <Image src={props.icon} />
-    </Flex>
+      {props.id}
+    </Text>
   );
 };
 
-// Element that receives DroppableThings
 const DroppableArea = (props) => {
-  // https://developer.mozilla.org/en-US/docs/Web/API/Document/drop_event
   const drop = (e) => {
-    const thingBeingDragged = e.dataTransfer.getData('animal');
+    const thingBeingDragged = e.dataTransfer.getData('socialMediaLinks');
     e.target.appendChild(document.getElementById(thingBeingDragged));
-
-    // Remove the highlight
-    // because the onDragLeave won't fire after onDrop
     e.target.classList.remove('activeDropArea');
   };
 
-  // https://developer.mozilla.org/en-US/docs/Web/API/Document/dragover_event
   const allowDrop = (e) => {
-    // The default action of onDragOver
-    // is to cancel the drop operation  -.-
-    // so we need to prevent that
     e.preventDefault();
   };
 
-  // https://developer.mozilla.org/en-US/docs/Web/API/Document/dragenter_event
   const dragEnter = (e) => {
-    // Drag Enter is used to
-    // highlight the drop area
     e.target.classList.add('activeDropArea');
   };
 
-  // https://developer.mozilla.org/en-US/docs/Web/API/Document/dragleave_event
   const dragLeave = (e) => {
-    // Drag Leave is used to
-    // remove the highlight in the drop area
     e.target.classList.remove('activeDropArea');
   };
   return (
-    // <div
-    //   className='droppableArea'
-    //   id={props.id}
-    //   onDrop={drop}
-    //   onDragOver={allowDrop}
-    //   onDragEnter={dragEnter}
-    //   onDragLeave={dragLeave}
-    // >
-    //   <p>picked animals 🤲</p>
-    // </div>
     <Box
       maxW='50%'
       textAlign='left'
@@ -126,10 +101,7 @@ const DroppableArea = (props) => {
         flexWrap='wrap'
         gap='12px'
         w='fit-content'
-      >
-        {/* <Avito rightIcon={assets.whatsapp} text='WhatsApp' />
-        <Avito rightIcon={assets.telegram} text='Telegram' /> */}
-      </Flex>
+      ></Flex>
     </Box>
   );
 };
@@ -148,6 +120,7 @@ export const DragDrop = () => {
         bg='#fff'
         p='24px'
         borderRadius='12px'
+        className='left__box'
       >
         <Heading fontSize='16px'>Ваши аккаунты</Heading>
         <Flex flexWrap='wrap' gap='12px' mt='14px'>

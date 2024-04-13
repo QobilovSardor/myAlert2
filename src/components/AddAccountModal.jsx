@@ -14,7 +14,7 @@ export const AddAccountModal = (props) => {
 
   return (
     <>
-      <Modal onClose={onClose} isOpen={true} isCentered>
+      <Modal onClose={onClose} isOpen={isOpen} isCentered>
         <ModalOverlay />
         <ModalContent
           textAlign='center'
