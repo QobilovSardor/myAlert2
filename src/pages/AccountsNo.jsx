@@ -25,6 +25,7 @@ export const AccountsNo = () => {
           color='#fff'
           bg='brand.500'
           icon={assets.plus}
+          to='/connectors/editting-adding'
         />
       </Box>
     </Box>

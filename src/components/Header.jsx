@@ -3,7 +3,7 @@ import { Box, Button, Flex, Heading, Image, Tooltip } from '@chakra-ui/react';
 import { AddIcon, CloseIcon, HamburgerIcon } from '@chakra-ui/icons';
 import { useEffect, useState } from 'react';
 import assets from '../assets';
-import { useLocation } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 export const Header = ({ text, addBtn, questionBox }) => {
   const [openSidebar, setOpenSidebar] = useState(false);
@@ -75,13 +75,15 @@ export const Header = ({ text, addBtn, questionBox }) => {
           ) : null}
         </Flex>
         {addBtn ? (
-          <Button
-            leftIcon={<AddIcon />}
-            colorScheme={'brand'}
-            size={{ base: 'xs', md: 'sm', desktop: 'md' }}
-          >
-            Добавить
-          </Button>
+          <Link to='/connectors/editting-adding'>
+            <Button
+              leftIcon={<AddIcon />}
+              colorScheme={'brand'}
+              size={{ base: 'xs', md: 'sm', desktop: 'md' }}
+            >
+              Добавить
+            </Button>
+          </Link>
         ) : null}
       </Flex>
     </header>
