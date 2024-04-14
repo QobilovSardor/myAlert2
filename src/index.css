@@ -388,3 +388,19 @@ footer {
     font-size: 14px;
   }
 }
+/* tab */
+.css-52dxnr[aria-selected='true'],
+.css-52dxnr[data-selected],
+.css-a5mhaz,
+.css-1xhq01z,
+.css-52dxnr {
+  padding: 0 !important;
+  border: none !important;
+  outline: none !important;
+}
+.chakra-tabs__tablist {
+  border: none !important;
+}
+#tabs-:r1:--tabpanel-1 {
+  background: red !important;
+}
