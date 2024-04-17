@@ -108,7 +108,7 @@ const DroppableArea = (props) => {
 
 export const DragDrop = () => {
   return (
-    <Flex px='36px' gap='12px'>
+    <Flex px='36px' flexWrap='wrap' gap='12px'>
       <Box
         sx={{
           '@media (max-width: 600px)': {

@@ -8,12 +8,15 @@ import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons';
 import { Box } from '@chakra-ui/react';
 import { SubscriptionModal } from './SubscriptionModal'; // SubscriptionModal import qilindi
 import { AddAccountModal } from './AddAccountModal';
+import { ModalComponent } from './Modal';
 
 export const HeaderDefault = ({ notFoundBtn }) => {
   const [openSidebar, setOpenSidebar] = useState(false);
-  const [isOpenSubscriptionModal, setIsOpenSubscriptionModal] = useState(false); // Yangi o'zgaruvchi qo'shildi
+  const [isOpenSubscriptionModal, setIsOpenSubscriptionModal] = useState(false);
   const [isOpenSubscriptionModalTwo, setIsOpenSubscriptionModalTwo] =
-    useState(false); // Yangi o'zgaruvchi qo'shildi
+    useState(false);
+  const [isOpenSubscriptionModalThree, setIsOpenSubscriptionModalThree] =
+    useState(false);
 
   const handleOpenSidebar = () => {
     const sidebarElement = document.querySelector('.header__btns');
@@ -30,6 +33,10 @@ export const HeaderDefault = ({ notFoundBtn }) => {
 
   const handleOpenSubscriptionModalTwo = () => {
     setIsOpenSubscriptionModalTwo(!isOpenSubscriptionModalTwo);
+  };
+
+  const handleOpenSubscriptionModalThree = () => {
+    setIsOpenSubscriptionModalThree(!isOpenSubscriptionModalThree);
   };
 
   const handleCloseSubscriptionModal = () => {
@@ -73,6 +80,9 @@ export const HeaderDefault = ({ notFoundBtn }) => {
               <Button onClick={handleOpenSubscriptionModalTwo}>
                 Поддержка
               </Button>
+              <Button onClick={handleOpenSubscriptionModalThree}>
+                Open modal
+              </Button>
             </Flex>
             <ButtonComponent
               text='Вход'
@@ -102,6 +112,11 @@ export const HeaderDefault = ({ notFoundBtn }) => {
       <AddAccountModal
         isOpen={isOpenSubscriptionModalTwo}
         onClose={handleOpenSubscriptionModalTwo}
+      />{' '}
+      <ModalComponent
+        isOpen={isOpenSubscriptionModalThree}
+        onClose={handleOpenSubscriptionModalThree}
+        dropno={true}
       />{' '}
     </header>
   );

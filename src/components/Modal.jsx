@@ -16,7 +16,7 @@ import { DragDrop } from './DragDrop';
 import { ButtonComponent } from './ButtonComponent';
 import { Avito } from './Avito';
 import assets from '../assets';
-export const AddAccountModal = (props) => {
+export const ModalComponent = (props) => {
   const { isOpen, onClose, dropno } = props;
 
   return (
@@ -106,7 +106,7 @@ export const AddAccountModal = (props) => {
                   >
                     Отправка данных
                   </Text>
-                  <Flex gap='12px' w='fit-content' mx='auto'>
+                  <Flex flexWrap='wrap' gap='12px' w='fit-content' mx='auto'>
                     <Avito rightIcon={assets.telegram} text='Telegram' />
                     <Avito rightIcon={assets.whatsapp} text='WhatsApp' />
                     <Avito rightIcon={assets.telegram} text='Telegram' />
